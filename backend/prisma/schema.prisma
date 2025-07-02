@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(uuid())
+  uname    String @unique
+  name     String
+  email    String @unique
+  password String
+  role     String @default("user") // if you plan to support different roles in future
+
+  @@map("user")
+}
+
+model Feedback {
+  id                    String   @id @default(uuid())
+  email                 String
+  phone                 String? // Optional phone number
+  name                  String
+  dateOfExperience      DateTime
+  dateOfFeedback        DateTime @default(now())
+  beforeImg             String
+  afterImg              String
+  overallExp            Int // 1-5 Scale
+  qualityOfService      Int // 1-5 Scale
+  timeliness            Int // 1-5 Scale
+  professionalism       Int // 1-5 Scale
+  communicationEase     Int // 1-5 Scale
+  whatLikedMost         String?
+  suggestionImprovement String?
+  recommendation        String? // Open-ended feedback (Why/Why not)
+  canPublish            Boolean? @default(false)
+  followUp              Boolean? @default(true)
+  createdAt             DateTime @default(now())
+}
