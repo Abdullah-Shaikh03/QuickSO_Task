@@ -2,8 +2,8 @@ import express from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 import { feedbackRouter } from "./routes/feedback.routes"
-import {  adminRouter } from "./routes/admin.routes"
-// import exportRoutes from "./routes/export.routes"
+import { adminRouter } from "./routes/admin.routes"
+import { exportRouter } from "./routes/export.routes"
 // import imageRoutes from "./routes/image.routes"
 import { handleMulterError } from "./utils/multerErrorHandler"
 
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }))
 // Routes
 app.use("/api/feedback", feedbackRouter)
 app.use("/api/admin", adminRouter)
-// app.use("/api/export", exportRoutes)
+app.use("/api/export", exportRouter)
 // app.use("/api/images", imageRoutes)
 
 // Health check
@@ -42,7 +42,6 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 
 // 404 handler
 app.use(
-  // "*",
   (req, res) => {
     res.status(404).json({
       success: false,
