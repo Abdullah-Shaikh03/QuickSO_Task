@@ -3,8 +3,8 @@ export interface FeedbackSubmission {
     phone?: string
     name: string
     dateOfExperience: string
-    beforeImg: string // S3 URL - required
-    afterImg: string // S3 URL - required
+    beforeImg?: string // S3 URL - required
+    afterImg?: string // S3 URL - required
     overallExp: number // 1-5 scale
     qualityOfService: number // 1-5 scale
     timeliness: number // 1-5 scale

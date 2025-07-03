@@ -21,15 +21,15 @@ const submitFeedback = expressAsyncHandler(async (req: AuthenticationRequest, re
             return
         }
 
-        if (!feedbackData.beforeImg || !feedbackData.afterImg) {
-            const Response: ApiResponse = {
-                success: false,
-                message: "Please upload both images.",
-            }
+        // if (!feedbackData.beforeImg || !feedbackData.afterImg) {
+        //     const Response: ApiResponse = {
+        //         success: false,
+        //         message: "Please upload both images.",
+        //     }
 
-            res.status(400).json(Response)
-            return
-        }
+        //     res.status(400).json(Response)
+        //     return
+        // }
 
         const ratings = [
             feedbackData.overallExp,
@@ -55,8 +55,8 @@ const submitFeedback = expressAsyncHandler(async (req: AuthenticationRequest, re
                 phone: feedbackData.phone,
                 name: feedbackData.name,
                 dateOfExperience: new Date(feedbackData.dateOfExperience),
-                beforeImg: feedbackData.beforeImg,
-                afterImg: feedbackData.afterImg,
+                beforeImg: feedbackData.beforeImg ?? "",
+                afterImg: feedbackData.afterImg ?? "",
                 overallExp: feedbackData.overallExp,
                 qualityOfService: feedbackData.qualityOfService,
                 timeliness: feedbackData.timeliness,
