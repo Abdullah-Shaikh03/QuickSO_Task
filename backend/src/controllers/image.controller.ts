@@ -32,13 +32,13 @@ const uploadImages = async (req: Request, res: Response) => {
         }
 
         // Validate file sizes (max 5MB per file)
-        const maxSize = 5 * 1024 * 1024 // 5MB
+        const maxSize = 20 * 1024 * 1024 // 20MB
         const oversizedFiles = files.filter((file) => file.size > maxSize)
 
         if (oversizedFiles.length > 0) {
             const response: ApiResponse = {
                 success: false,
-                error: "File size too large. Maximum size is 5MB per image.",
+                error: "File size too large. Maximum size is 20MB per image.",
             }
             res.status(400).json(response)
             return
