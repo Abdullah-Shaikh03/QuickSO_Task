@@ -2,7 +2,7 @@ import type { Request, Response, NextFunction } from "express";
 import type { ApiResponse } from "../types";
 import multer from "multer";
 
-export const handleMulterErro = (err: any, req: Request, res: Response, next: NextFunction) => {
+const handleMulterError = (err: any, req: Request, res: Response, next: NextFunction) => {
     if (err instanceof multer.MulterError) {
         let message = "file Upload error"
 
@@ -31,3 +31,6 @@ export const handleMulterErro = (err: any, req: Request, res: Response, next: Ne
 }
 
 
+export {
+    handleMulterError
+}

@@ -5,7 +5,7 @@ import { feedbackRouter } from "./routes/feedback.routes"
 import {  adminRouter } from "./routes/admin.routes"
 // import exportRoutes from "./routes/export.routes"
 // import imageRoutes from "./routes/image.routes"
-// import { handleMulterError } from "./utils/multerErrorHandler"
+import { handleMulterError } from "./utils/multerErrorHandler"
 
 dotenv.config()
 
@@ -29,7 +29,7 @@ app.get("/health", (req, res) => {
 })
 
 // Multer error handler
-// app.use(handleMulterError)
+app.use(handleMulterError)
 
 // Error handling middleware
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
