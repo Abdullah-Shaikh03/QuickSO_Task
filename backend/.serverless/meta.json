@@ -8,8 +8,8 @@
       "frameworkVersion": ">=4",
       "provider": {
         "name": "aws",
-        "runtime": "nodejs18.x",
-        "region": "us-east-1",
+        "runtime": "nodejs22.x",
+        "region": "ap-south-1",
         "environment": {
           "NODE_ENV": "production",
           "DATABASE_URL": "postgresql://Abdullah:QuickSODB_Task1@database-1.cveuosggico1.ap-south-1.rds.amazonaws.com/QuickSO",
@@ -109,11 +109,11 @@
               "Type": "AWS::Lambda::Function",
               "Properties": {
                 "Code": {
-                  "S3Bucket": "serverless-framework-deployments-us-east-1-12355750-fec9",
-                  "S3Key": "serverless/feedback-api/dev/1751717071073-2025-07-05T12:04:31.073Z/feedback-api.zip"
+                  "S3Bucket": "serverless-framework-deployments-ap-south-1-8a0a19f5-6c4f",
+                  "S3Key": "serverless/feedback-api/dev/1751727302853-2025-07-05T14:55:02.853Z/feedback-api.zip"
                 },
                 "Handler": "src/handler.handler",
-                "Runtime": "nodejs18.x",
+                "Runtime": "nodejs22.x",
                 "FunctionName": "feedback-api-dev-app",
                 "MemorySize": 1024,
                 "Timeout": 6,
@@ -136,14 +136,14 @@
                 "AppLogGroup"
               ]
             },
-            "AppLambdaVersiong2bSEpha8C9ZhDQGkglCGVL7cTpMMGJSjVCA51WvQ": {
+            "AppLambdaVersionFDqGbnJpHPkq8uucLdC9jlP8adWx90ppavlkDa8B4B8": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "AppLambdaFunction"
                 },
-                "CodeSha256": "+pLxPWSzRDuZuaOR3YX8ss2EzaJv8ERa2BNd2DmWOU4="
+                "CodeSha256": "H06C5EKfHsgUdldn2ljWHJHxFoj55Z5NfCAT+Ifg0xw="
               }
             },
             "ApiGatewayRestApi": {
@@ -268,7 +268,7 @@
                 "AppLambdaPermissionApiGateway"
               ]
             },
-            "ApiGatewayDeployment1751717060265": {
+            "ApiGatewayDeployment1751727295737": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -321,7 +321,7 @@
           },
           "Outputs": {
             "ServerlessDeploymentBucketName": {
-              "Value": "serverless-framework-deployments-us-east-1-12355750-fec9",
+              "Value": "serverless-framework-deployments-ap-south-1-8a0a19f5-6c4f",
               "Export": {
                 "Name": "sls-feedback-api-dev-ServerlessDeploymentBucketName"
               }
@@ -329,7 +329,7 @@
             "AppLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "AppLambdaVersiong2bSEpha8C9ZhDQGkglCGVL7cTpMMGJSjVCA51WvQ"
+                "Ref": "AppLambdaVersionFDqGbnJpHPkq8uucLdC9jlP8adWx90ppavlkDa8B4B8"
               },
               "Export": {
                 "Name": "sls-feedback-api-dev-AppLambdaFunctionQualifiedArn"
@@ -391,9 +391,9 @@
           "package": {},
           "memory": 1024,
           "timeout": 6,
-          "runtime": "nodejs18.x",
+          "runtime": "nodejs22.x",
           "vpc": {},
-          "versionLogicalId": "AppLambdaVersiong2bSEpha8C9ZhDQGkglCGVL7cTpMMGJSjVCA51WvQ"
+          "versionLogicalId": "AppLambdaVersionFDqGbnJpHPkq8uucLdC9jlP8adWx90ppavlkDa8B4B8"
         }
       },
       "custom": {
@@ -418,15 +418,15 @@
           "prisma/migrations/**"
         ],
         "artifactsS3KeyDirname": "serverless/feedback-api/dev/code-artifacts",
-        "deploymentBucket": "serverless-framework-deployments-us-east-1-12355750-fec9",
+        "deploymentBucket": "serverless-framework-deployments-ap-south-1-8a0a19f5-6c4f",
         "artifact": "D:\\GitHub\\QuickSO_Task\\backend\\.serverless\\build\\feedback-api.zip",
-        "artifactDirectoryName": "serverless/feedback-api/dev/1751717071073-2025-07-05T12:04:31.073Z"
+        "artifactDirectoryName": "serverless/feedback-api/dev/1751727302853-2025-07-05T14:55:02.853Z"
       }
     },
     "provider": {
       "name": "aws",
-      "runtime": "nodejs18.x",
-      "region": "us-east-1",
+      "runtime": "nodejs22.x",
+      "region": "ap-south-1",
       "environment": {
         "NODE_ENV": "production",
         "DATABASE_URL": "postgresql://Abdullah:QuickSODB_Task1@database-1.cveuosggico1.ap-south-1.rds.amazonaws.com/QuickSO",
@@ -526,11 +526,11 @@
             "Type": "AWS::Lambda::Function",
             "Properties": {
               "Code": {
-                "S3Bucket": "serverless-framework-deployments-us-east-1-12355750-fec9",
-                "S3Key": "serverless/feedback-api/dev/1751717071073-2025-07-05T12:04:31.073Z/feedback-api.zip"
+                "S3Bucket": "serverless-framework-deployments-ap-south-1-8a0a19f5-6c4f",
+                "S3Key": "serverless/feedback-api/dev/1751727302853-2025-07-05T14:55:02.853Z/feedback-api.zip"
               },
               "Handler": "src/handler.handler",
-              "Runtime": "nodejs18.x",
+              "Runtime": "nodejs22.x",
               "FunctionName": "feedback-api-dev-app",
               "MemorySize": 1024,
               "Timeout": 6,
@@ -553,14 +553,14 @@
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersiong2bSEpha8C9ZhDQGkglCGVL7cTpMMGJSjVCA51WvQ": {
+          "AppLambdaVersionFDqGbnJpHPkq8uucLdC9jlP8adWx90ppavlkDa8B4B8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "+pLxPWSzRDuZuaOR3YX8ss2EzaJv8ERa2BNd2DmWOU4="
+              "CodeSha256": "H06C5EKfHsgUdldn2ljWHJHxFoj55Z5NfCAT+Ifg0xw="
             }
           },
           "ApiGatewayRestApi": {
@@ -685,7 +685,7 @@
               "AppLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1751717060265": {
+          "ApiGatewayDeployment1751727295737": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -738,7 +738,7 @@
         },
         "Outputs": {
           "ServerlessDeploymentBucketName": {
-            "Value": "serverless-framework-deployments-us-east-1-12355750-fec9",
+            "Value": "serverless-framework-deployments-ap-south-1-8a0a19f5-6c4f",
             "Export": {
               "Name": "sls-feedback-api-dev-ServerlessDeploymentBucketName"
             }
@@ -746,7 +746,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersiong2bSEpha8C9ZhDQGkglCGVL7cTpMMGJSjVCA51WvQ"
+              "Ref": "AppLambdaVersionFDqGbnJpHPkq8uucLdC9jlP8adWx90ppavlkDa8B4B8"
             },
             "Export": {
               "Name": "sls-feedback-api-dev-AppLambdaFunctionQualifiedArn"
@@ -791,37 +791,39 @@
       "serviceProvider": null,
       "instanceParameters": null
     },
-    "serviceRawFile": "service: feedback-api\r\n\r\nframeworkVersion: '>=4'\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs18.x\r\n  region: us-east-1\r\n  environment:\r\n    NODE_ENV: production\r\n    DATABASE_URL: ${env:DATABASE_URL}\r\n    # AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY}\r\n    # AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_KEY}\r\n    # AWS_REGION: ${env:AWS_REGION}\r\n    BUCKET_NAME: ${env:S3_BUCKET_NAME}\r\n\r\nfunctions:\r\n  app:\r\n    handler: src/handler.handler\r\n    events:\r\n      - http:\r\n          path: /\r\n          method: ANY\r\n      - http:\r\n          path: /{proxy+}\r\n          method: ANY\r\n\r\ncustom:\r\n  esbuild:\r\n    bundle: true\r\n    minify: false\r\n    sourcemap: true\r\n    target: es2020\r\n    platform: node\r\n    external: [\"@prisma/client\"]\r\n    packager: npm\r\n    concurrency: 10\r\n\r\n\r\npackage:\r\n  include:\r\n    - node_modules/.prisma/client/**\r\n    - node_modules/@prisma/client/**\r\n    - prisma/schema.prisma\r\n    - prisma/migrations/**\r\n\r\n",
+    "serviceRawFile": "service: feedback-api\r\n\r\nframeworkVersion: '>=4'\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs22.x\r\n  region: us-east-1\r\n  environment:\r\n    NODE_ENV: production\r\n    DATABASE_URL: ${env:DATABASE_URL}\r\n\r\n    BUCKET_NAME: ${env:S3_BUCKET_NAME}\r\n\r\nfunctions:\r\n  app:\r\n    handler: src/handler.handler\r\n    events:\r\n      - http:\r\n          path: /\r\n          method: ANY\r\n      - http:\r\n          path: /{proxy+}\r\n          method: ANY\r\n\r\ncustom:\r\n  esbuild:\r\n    bundle: true\r\n    minify: false\r\n    sourcemap: true\r\n    target: es2020\r\n    platform: node\r\n    external: [\"@prisma/client\"]\r\n    packager: npm\r\n    concurrency: 10\r\n\r\n\r\npackage:\r\n  include:\r\n    - node_modules/.prisma/client/**\r\n    - node_modules/@prisma/client/**\r\n    - prisma/schema.prisma\r\n    - prisma/migrations/**\r\n\r\n",
     "command": [
       "deploy"
     ],
-    "options": {},
+    "options": {
+      "region": "ap-south-1"
+    },
     "orgId": "fd8ded17-b0ff-489f-8fba-63d53197ebce",
     "orgName": "abdullahsk03",
     "userId": "Nb0yqYzMKzN3Qr3KGc",
     "userName": "abdullahsk03",
     "serviceProviderAwsAccountId": "778174069615",
     "serviceProviderAwsCfStackName": "feedback-api-dev",
-    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:778174069615:stack/feedback-api-dev/0f0cdb80-5997-11f0-9c80-0affc6911eb3",
-    "serviceProviderAwsCfStackCreated": "2025-07-05T11:56:17.708Z",
-    "serviceProviderAwsCfStackUpdated": null,
-    "serviceProviderAwsCfStackStatus": "CREATE_COMPLETE",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:ap-south-1:778174069615:stack/feedback-api-dev/617ae170-59ae-11f0-b746-0a3b7a69a0b1",
+    "serviceProviderAwsCfStackCreated": "2025-07-05T14:43:14.983Z",
+    "serviceProviderAwsCfStackUpdated": "2025-07-05T14:46:12.086Z",
+    "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "AppLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-east-1:778174069615:function:feedback-api-dev-app:1",
+        "OutputValue": "arn:aws:lambda:ap-south-1:778174069615:function:feedback-api-dev-app:2",
         "Description": "Current Lambda function version",
         "ExportName": "sls-feedback-api-dev-AppLambdaFunctionQualifiedArn"
       },
       {
         "OutputKey": "ServiceEndpoint",
-        "OutputValue": "https://n3b80dsc0g.execute-api.us-east-1.amazonaws.com/dev",
+        "OutputValue": "https://7ef2vspmle.execute-api.ap-south-1.amazonaws.com/dev",
         "Description": "URL of the service endpoint",
         "ExportName": "sls-feedback-api-dev-ServiceEndpoint"
       },
       {
         "OutputKey": "ServerlessDeploymentBucketName",
-        "OutputValue": "serverless-framework-deployments-us-east-1-12355750-fec9",
+        "OutputValue": "serverless-framework-deployments-ap-south-1-8a0a19f5-6c4f",
         "ExportName": "sls-feedback-api-dev-ServerlessDeploymentBucketName"
       }
     ],
@@ -917,11 +919,11 @@
           "Type": "AWS::Lambda::Function",
           "Properties": {
             "Code": {
-              "S3Bucket": "serverless-framework-deployments-us-east-1-12355750-fec9",
-              "S3Key": "serverless/feedback-api/dev/1751717071073-2025-07-05T12:04:31.073Z/feedback-api.zip"
+              "S3Bucket": "serverless-framework-deployments-ap-south-1-8a0a19f5-6c4f",
+              "S3Key": "serverless/feedback-api/dev/1751727302853-2025-07-05T14:55:02.853Z/feedback-api.zip"
             },
             "Handler": "src/handler.handler",
-            "Runtime": "nodejs18.x",
+            "Runtime": "nodejs22.x",
             "FunctionName": "feedback-api-dev-app",
             "MemorySize": 1024,
             "Timeout": 6,
@@ -944,14 +946,14 @@
             "AppLogGroup"
           ]
         },
-        "AppLambdaVersiong2bSEpha8C9ZhDQGkglCGVL7cTpMMGJSjVCA51WvQ": {
+        "AppLambdaVersionFDqGbnJpHPkq8uucLdC9jlP8adWx90ppavlkDa8B4B8": {
           "Type": "AWS::Lambda::Version",
           "DeletionPolicy": "Retain",
           "Properties": {
             "FunctionName": {
               "Ref": "AppLambdaFunction"
             },
-            "CodeSha256": "+pLxPWSzRDuZuaOR3YX8ss2EzaJv8ERa2BNd2DmWOU4="
+            "CodeSha256": "H06C5EKfHsgUdldn2ljWHJHxFoj55Z5NfCAT+Ifg0xw="
           }
         },
         "ApiGatewayRestApi": {
@@ -1076,7 +1078,7 @@
             "AppLambdaPermissionApiGateway"
           ]
         },
-        "ApiGatewayDeployment1751717060265": {
+        "ApiGatewayDeployment1751727295737": {
           "Type": "AWS::ApiGateway::Deployment",
           "Properties": {
             "RestApiId": {
@@ -1129,7 +1131,7 @@
       },
       "Outputs": {
         "ServerlessDeploymentBucketName": {
-          "Value": "serverless-framework-deployments-us-east-1-12355750-fec9",
+          "Value": "serverless-framework-deployments-ap-south-1-8a0a19f5-6c4f",
           "Export": {
             "Name": "sls-feedback-api-dev-ServerlessDeploymentBucketName"
           }
@@ -1137,7 +1139,7 @@
         "AppLambdaFunctionQualifiedArn": {
           "Description": "Current Lambda function version",
           "Value": {
-            "Ref": "AppLambdaVersiong2bSEpha8C9ZhDQGkglCGVL7cTpMMGJSjVCA51WvQ"
+            "Ref": "AppLambdaVersionFDqGbnJpHPkq8uucLdC9jlP8adWx90ppavlkDa8B4B8"
           },
           "Export": {
             "Name": "sls-feedback-api-dev-AppLambdaFunctionQualifiedArn"

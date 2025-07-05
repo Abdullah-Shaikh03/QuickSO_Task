@@ -90,11 +90,11 @@
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": "serverless-framework-deployments-us-east-1-12355750-fec9",
-          "S3Key": "serverless/feedback-api/dev/1751717071073-2025-07-05T12:04:31.073Z/feedback-api.zip"
+          "S3Bucket": "serverless-framework-deployments-ap-south-1-8a0a19f5-6c4f",
+          "S3Key": "serverless/feedback-api/dev/1751727302853-2025-07-05T14:55:02.853Z/feedback-api.zip"
         },
         "Handler": "src/handler.handler",
-        "Runtime": "nodejs18.x",
+        "Runtime": "nodejs22.x",
         "FunctionName": "feedback-api-dev-app",
         "MemorySize": 1024,
         "Timeout": 6,
@@ -117,14 +117,14 @@
         "AppLogGroup"
       ]
     },
-    "AppLambdaVersiong2bSEpha8C9ZhDQGkglCGVL7cTpMMGJSjVCA51WvQ": {
+    "AppLambdaVersionFDqGbnJpHPkq8uucLdC9jlP8adWx90ppavlkDa8B4B8": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppLambdaFunction"
         },
-        "CodeSha256": "+pLxPWSzRDuZuaOR3YX8ss2EzaJv8ERa2BNd2DmWOU4="
+        "CodeSha256": "H06C5EKfHsgUdldn2ljWHJHxFoj55Z5NfCAT+Ifg0xw="
       }
     },
     "ApiGatewayRestApi": {
@@ -249,7 +249,7 @@
         "AppLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1751717060265": {
+    "ApiGatewayDeployment1751727295737": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -302,7 +302,7 @@
   },
   "Outputs": {
     "ServerlessDeploymentBucketName": {
-      "Value": "serverless-framework-deployments-us-east-1-12355750-fec9",
+      "Value": "serverless-framework-deployments-ap-south-1-8a0a19f5-6c4f",
       "Export": {
         "Name": "sls-feedback-api-dev-ServerlessDeploymentBucketName"
       }
@@ -310,7 +310,7 @@
     "AppLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppLambdaVersiong2bSEpha8C9ZhDQGkglCGVL7cTpMMGJSjVCA51WvQ"
+        "Ref": "AppLambdaVersionFDqGbnJpHPkq8uucLdC9jlP8adWx90ppavlkDa8B4B8"
       },
       "Export": {
         "Name": "sls-feedback-api-dev-AppLambdaFunctionQualifiedArn"
