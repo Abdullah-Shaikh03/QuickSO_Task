@@ -23,7 +23,7 @@ export class ImageService {
         Key: fileName,
         Body: file.buffer,
         ContentType: file.mimetype,
-        ACL: "public-read",
+        // ACL: "public-read-write",
       })
 
       await s3Client.send(command)
@@ -69,7 +69,7 @@ export class ImageService {
         Bucket: this.bucketName,
         Key: key,
         ContentType: contentType,
-        ACL: "public-read",
+        // ACL: "public-read-write",
       })
 
       const signedUrl = await getSignedUrl(s3Client, command, { expiresIn: 3600 }) // 1 hour

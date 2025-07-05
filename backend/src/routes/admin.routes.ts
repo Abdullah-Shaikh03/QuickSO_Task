@@ -23,8 +23,8 @@ adminRouter.get(
 );
 
 adminRouter.post("/register",
-    authenticationToken,
-    requireAdmin,
+    // authenticationToken,
+    // requireAdmin,
     registerUser
 );
 

@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-
+import { feedbackSchema } from "@/lib/validations";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { apiClient, type FeedbackSubmission } from "@/lib/api";
@@ -20,6 +20,7 @@ import { Slider } from "@/components/ui/slider";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import { Loader2, Upload, X } from "lucide-react";
+import { error } from "console";
 
 export default function SubmitFeedbackPage() {
   const [formData, setFormData] = useState<Partial<FeedbackSubmission>>({
@@ -103,9 +104,13 @@ export default function SubmitFeedbackPage() {
           if (afterImage) afterImgUrl = beforeImage ? urls[1] : urls[0];
         }
       }
-
+      const result = feedbackSchema.safeParse(formData);
+      if (!result.success) {
+        toast.error(result.error.errors[0].message);
+        return;
+      }
       const feedbackData: FeedbackSubmission = {
-        ...formData,
+        ...result.data,
         beforeImg: beforeImgUrl,
         afterImg: afterImgUrl,
       } as FeedbackSubmission;
