@@ -1,12 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client-js"
-  // output   = "../src/generated/prisma"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
@@ -20,7 +14,7 @@ model User {
   name     String
   email    String @unique
   password String
-  role     String @default("user") // if you plan to support different roles in future
+  role     String @default("user")
 
   @@map("user")
 }
@@ -28,20 +22,20 @@ model User {
 model Feedback {
   id                    String   @id @default(uuid())
   email                 String
-  phone                 String? // Optional phone number
+  phone                 String?
   name                  String
   dateOfExperience      DateTime
   dateOfFeedback        DateTime @default(now())
   beforeImg             String
   afterImg              String
-  overallExp            Int // 1-5 Scale
-  qualityOfService      Int // 1-5 Scale
-  timeliness            Int // 1-5 Scale
-  professionalism       Int // 1-5 Scale
-  communicationEase     Int // 1-5 Scale
+  overallExp            Int
+  qualityOfService      Int
+  timeliness            Int
+  professionalism       Int
+  communicationEase     Int
   whatLikedMost         String?
   suggestionImprovement String?
-  recommendation        String? // Open-ended feedback (Why/Why not)
+  recommendation        String?
   canPublish            Boolean? @default(false)
   followUp              Boolean? @default(true)
   createdAt             DateTime @default(now())

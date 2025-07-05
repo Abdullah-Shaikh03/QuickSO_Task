@@ -1,16 +1,16 @@
 service: feedback-api
 
-frameworkVersion: '>=4'
+frameworkVersion: ">=4"
 
 provider:
   name: aws
   runtime: nodejs22.x
-  region: us-east-1
+  region: ap-south-1
   environment:
     NODE_ENV: production
     DATABASE_URL: ${env:DATABASE_URL}
-
     BUCKET_NAME: ${env:S3_BUCKET_NAME}
+    JWT_SECRET: ${env:JWT_SECRET}
 
 functions:
   app:
@@ -19,9 +19,11 @@ functions:
       - http:
           path: /
           method: ANY
+          cors: true
       - http:
           path: /{proxy+}
           method: ANY
+          cors: true
 
 custom:
   esbuild:
@@ -33,11 +35,13 @@ custom:
     external: ["@prisma/client"]
     packager: npm
     concurrency: 10
-
+    plugins:
+      - esbuild-plugin-prisma
 
 package:
   include:
-    - node_modules/.prisma/client/**
+    - node_modules/.prisma/client/libquery_engine-rhel-openssl-3.0.x.so.node
+    - node_modules/.prisma/client/schema.prisma
     - node_modules/@prisma/client/**
     - prisma/schema.prisma
     - prisma/migrations/**
