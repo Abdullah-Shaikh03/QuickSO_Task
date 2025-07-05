@@ -1,0 +1,46 @@
+service: feedback-api
+
+frameworkVersion: '>=4'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  environment:
+    NODE_ENV: production
+    DATABASE_URL: ${env:DATABASE_URL}
+    # AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY}
+    # AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_KEY}
+    # AWS_REGION: ${env:AWS_REGION}
+    BUCKET_NAME: ${env:S3_BUCKET_NAME}
+
+functions:
+  app:
+    handler: src/handler.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+      - http:
+          path: /{proxy+}
+          method: ANY
+
+custom:
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+    target: es2020
+    platform: node
+    external: ["@prisma/client"]
+    packager: npm
+    concurrency: 10
+
+
+package:
+  include:
+    - node_modules/.prisma/client/**
+    - node_modules/@prisma/client/**
+    - prisma/schema.prisma
+    - prisma/migrations/**
+
