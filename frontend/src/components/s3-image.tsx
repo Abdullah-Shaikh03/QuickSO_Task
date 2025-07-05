@@ -139,11 +139,11 @@ export function S3Image({
         unoptimized={false} // Allow Next.js optimization
       />
       {/* Debug info in development */}
-      {process.env.NODE_ENV === "development" && (
+      {/* {process.env.NODE_ENV === "development" && (
         <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white text-xs p-1 rounded-tr">
           URL {urlIndex + 1}/{possibleUrls.length}
         </div>
-      )}
+      )} */}
     </div>
   )
 }
