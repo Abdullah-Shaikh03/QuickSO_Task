@@ -1,9 +1,13 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/index.ts", "use": "@vercel/node" }
+    {
+      "src": "src/index.ts",   
+      "use": "@vercel/node"
+    }
   ],
-  "routes": [
-    { "src": "/(.*)", "dest": "/api/index.ts" }
-  ]
+  "buildCommand": "npx prisma generate && npx prisma migrate deploy && tsc --noEmit",
+  "env": {
+    "DATABASE_URL": "your-postgres-url"
+  }
 }
