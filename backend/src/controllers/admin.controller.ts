@@ -5,6 +5,7 @@ import jwt from "jsonwebtoken";
 import prisma from "../config/dbConfig";
 import { comparePassword, hashPassword } from "../utils/hashedPassword";
 import expressAsyncHandler from "express-async-handler";
+import { json } from "stream/consumers";
 
 
 // @ROUTE           /login
@@ -73,8 +74,11 @@ const adminLogin = expressAsyncHandler(async (req: AuthenticationRequest, res: R
             error: "Login failed",
         };
         res.status(500).json(response);
+        return
     }
 });
+
+
 
 // @ROUTE           /register
 // @METHOD          /POST
@@ -234,6 +238,8 @@ const getAllUsers = expressAsyncHandler(async (req: AuthenticationRequest, res: 
         res.status(500).json(response)
     }
 })
+
+
 // @ROUTE           /users/:id/users
 // @METHOD          PATCH
 // @DESCRIPTION     Update user data
@@ -279,6 +285,8 @@ const updateUserRole = expressAsyncHandler(async (req: AuthenticationRequest, re
         res.status(500).json(response);
     }
 })
+
+
 export {
     adminLogin,
     registerUser,
