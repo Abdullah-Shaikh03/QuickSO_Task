@@ -2,12 +2,12 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/index.ts",   
+      "src": "src/index.ts",
       "use": "@vercel/node"
     }
   ],
   "buildCommand": "npx prisma generate && npx prisma migrate deploy && tsc --noEmit",
   "env": {
-    "DATABASE_URL": "your-postgres-url"
+    "DATABASE_URL": "postgresql://Abdullah:PostgresDB_@quickso-task.cveuosggico1.ap-south-1.rds.amazonaws.com/QuickSO"
   }
 }
