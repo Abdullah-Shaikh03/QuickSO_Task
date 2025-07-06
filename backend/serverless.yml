@@ -1,56 +1,56 @@
-service: feedback-backend
+# service: feedback-backend
 
-provider:
-  name: aws
-  runtime: nodejs22.x
-  region: ap-south-1
-  environment:
-    NODE_ENV: production
-    DATABASE_URL: ${env:DATABASE_URL}
-    JWT_SECRET: ${env:JWT_SECRET}
-    BUCKET_NAME: ${env:S3_BUCKET_NAME}
+# provider:
+#   name: aws
+#   runtime: nodejs22.x
+#   region: ap-south-1
+#   environment:
+#     NODE_ENV: production
+#     DATABASE_URL: ${env:DATABASE_URL}
+#     JWT_SECRET: ${env:JWT_SECRET}
+#     BUCKET_NAME: ${env:S3_BUCKET_NAME}
     
 
-functions:
-  app:
-    handler: src/handler.handler
-    events:
-      - http:
-          path: /
-          method: ANY
-          cors: 
-            origin: "*"
-            headers:
-              - Content-Type
-              - Authorization
-            allowCredentials: false
-      - http:
-          path: /{proxy+}
-          method: ANY
-          cors:
-            origin: "*"
-            headers:
-              - Content-Type
-              - Authorization
-            allowCredentials: false
+# functions:
+#   app:
+#     handler: src/handler.handler
+#     events:
+#       - http:
+#           path: /
+#           method: ANY
+#           cors: 
+#             origin: "*"
+#             headers:
+#               - Content-Type
+#               - Authorization
+#             allowCredentials: false
+#       - http:
+#           path: /{proxy+}
+#           method: ANY
+#           cors:
+#             origin: "*"
+#             headers:
+#               - Content-Type
+#               - Authorization
+#             allowCredentials: false
 
-custom:
-  esbuild:
-    bundle: true
-    minify: false
-    sourcemap: true
-    target: es2020
-    platform: node
-    external: ["@prisma/client", "./prisma/client"]
-    packager: npm
-    concurrency: 10
-    plugins:
-      - esbuild-plugin-prisma
+# custom:
+#   esbuild:
+#     bundle: true
+#     minify: false
+#     sourcemap: true
+#     target: es2020
+#     platform: node
+#     external: ["@prisma/client", "./prisma/client"]
+#     packager: npm
+#     concurrency: 10
+#     plugins:
+#       - esbuild-plugin-prisma
 
-package:
-  include:
-    - node_modules/.prisma/client/libquery_engine-*.so.node
-    - node_modules/.prisma/client/schema.prisma
-    - node_modules/@prisma/client/**
-    - prisma/schema.prisma
-    - prisma/migrations/**
+# package:
+#   include:
+#     - node_modules/.prisma/client/libquery_engine-*.so.node
+#     - node_modules/.prisma/client/schema.prisma
+#     - node_modules/@prisma/client/**
+#     - prisma/schema.prisma
+#     - prisma/migrations/**

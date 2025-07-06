@@ -6,8 +6,10 @@
       "use": "@vercel/node"
     }
   ],
-  "buildCommand": "npx prisma generate && npx prisma migrate deploy && tsc --noEmit",
-  "env": {
-    "DATABASE_URL": "postgresql://Abdullah:PostgresDB_@quickso-task.cveuosggico1.ap-south-1.rds.amazonaws.com/QuickSO"
-  }
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "src/index.ts"
+    }
+  ]
 }
