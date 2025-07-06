@@ -1,6 +1,4 @@
-service: feedback-api
-
-frameworkVersion: ">=4"
+service: feedback-backend
 
 provider:
   name: aws
@@ -9,7 +7,6 @@ provider:
   environment:
     NODE_ENV: production
     DATABASE_URL: ${env:DATABASE_URL}
-    BUCKET_NAME: ${env:S3_BUCKET_NAME}
     JWT_SECRET: ${env:JWT_SECRET}
 
 functions:
@@ -40,9 +37,7 @@ custom:
 
 package:
   include:
-    - node_modules/.prisma/client/libquery_engine-rhel-openssl-3.0.x.so.node
     - node_modules/.prisma/client/schema.prisma
     - node_modules/@prisma/client/**
     - prisma/schema.prisma
     - prisma/migrations/**
-

@@ -42,14 +42,14 @@ app.get("/health", (req, res) => {
 // Multer error handler
 app.use(handleMulterError)
 
-// // Error handling middleware
-// app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
-//   console.error(err.stack)
-//   res.status(500).json({
-//     success: false,
-//     error: "Something went wrong!",
-//   })
-// })
+// Error handling middleware
+app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  console.error(err.stack)
+  res.status(500).json({
+    success: false,
+    error: "Something went wrong!",
+  })
+})
 
 app.get("/debug/env", (req, res) => {
   res.json({
@@ -62,14 +62,14 @@ app.get("/debug/env", (req, res) => {
 
 
 // 404 handler
-// app.use(
-//   (req, res) => {
-//     res.status(404).json({
-//       success: false,
-//       error: "Route not found",
-//     })
-//   }
-// )
+app.use(
+  (req, res) => {
+    res.status(404).json({
+      success: false,
+      error: "Route not found",
+    })
+  }
+)
 
 if (process.env.NODE_ENV === "dev") {
   app.listen(PORT, () => {
