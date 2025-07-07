@@ -12,7 +12,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Loader2 } from "lucide-react"
-
+import { toast } from "sonner"
 export default function LoginPage() {
   const [formData, setFormData] = useState({
     uname: "",
@@ -21,14 +21,17 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false)
   const { login } = useAuth()
   const router = useRouter()
+  const {user, isAdmin} = useAuth()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
 
     const success = await login(formData.uname, formData.password)
-    if (success) {
+    if (success && isAdmin) {
       router.push("/admin/dashboard")
+    }else{
+      router.push('/')
     }
 
     setLoading(false)
