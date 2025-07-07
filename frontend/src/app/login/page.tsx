@@ -1,48 +1,57 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import Link from "next/link"
-import Image from "next/image"
-import { useAuth } from "@/context/auth-context"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Loader2 } from "lucide-react"
-import { toast } from "sonner"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import { useAuth } from "@/context/auth-context";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
 export default function LoginPage() {
   const [formData, setFormData] = useState({
     uname: "",
     password: "",
-  })
-  const [loading, setLoading] = useState(false)
-  const { login } = useAuth()
-  const router = useRouter()
-  const {user, isAdmin} = useAuth()
+  });
+  const [loading, setLoading] = useState(false);
+  const { login } = useAuth();
+  const router = useRouter();
+  const { user, isAdmin } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setLoading(true)
+    e.preventDefault();
+    setLoading(true);
 
-    const success = await login(formData.uname, formData.password)
-    if (success && isAdmin) {
-      router.push("/admin/dashboard")
-    }else{
-      router.push('/')
+    const success = await login(formData.uname, formData.password);
+    if (success) {
+      toast.success(isAdmin ? "Admin login successful!" : "Login successful!");
+      if (isAdmin) {
+        router.push("/admin/dashboard");
+      } else {
+        router.push("/");
+      }
     }
 
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -55,14 +64,20 @@ export default function LoginPage() {
             height={60}
             className="mx-auto h-12 w-auto"
           />
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">Sign in to your account</h2>
-          <p className="mt-2 text-sm text-gray-600">Access your feedback management dashboard</p>
+          <h2 className="mt-6 text-3xl font-bold text-gray-900">
+            Sign in to your account
+          </h2>
+          <p className="mt-2 text-sm text-gray-600">
+            Access your feedback management dashboard
+          </p>
         </div>
 
         <Card>
           <CardHeader>
             <CardTitle>Login</CardTitle>
-            <CardDescription>Enter your credentials to access the admin panel</CardDescription>
+            <CardDescription>
+              Enter your credentials to access the admin panel
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -107,7 +122,10 @@ export default function LoginPage() {
             <div className="mt-4 text-center">
               <p className="text-sm text-gray-600">
                 Don't have an account?{" "}
-                <Link href="/register" className="text-primary-600 hover:text-primary-500 font-medium">
+                <Link
+                  href="/register"
+                  className="text-primary-600 hover:text-primary-500 font-medium"
+                >
                   Contact your administrator
                 </Link>
               </p>
@@ -116,5 +134,5 @@ export default function LoginPage() {
         </Card>
       </div>
     </div>
-  )
+  );
 }
