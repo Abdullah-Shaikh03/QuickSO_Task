@@ -90,7 +90,7 @@ const submitFeedback = expressAsyncHandler(async (req: AuthenticationRequest, re
     }
 })
 
-// @ROUTE               /
+// @ROUTE               /all
 // @METHOD              GET
 // @DESCRIPTION         GET ALL FEEDBACK
 // @ACCESS              PRIVATE

@@ -23,7 +23,7 @@ const upload = multer({
 })
 
 // All image routes require authentication
-router.post("/upload", authenticationToken, requireUser, upload.array("images", 2), uploadImages)
+router.post("/upload",  upload.array("images", 2), uploadImages)
 router.post("/presigned-url", authenticationToken, requireUser, getPresignedUploadUrl)
 router.delete("/delete", authenticationToken, requireUser, deleteImage)
 
